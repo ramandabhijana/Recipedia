@@ -14,13 +14,15 @@ let package = Package(
   dependencies: [
     .package(path: "../Recipe"),
     .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "10.2.0"),
-    .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
+    .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0")),
+    .package(name: "Core", url: "https://github.com/abhija-gh/Recipedia-Core.git", from: "1.0.0")
   ],
   targets: [
     .target(
       name: "ImageClassification",
       dependencies: [
         .product(name: "RealmSwift", package: "Realm"),
+        "Core",
         "Recipe",
         "Alamofire"
       ]),
