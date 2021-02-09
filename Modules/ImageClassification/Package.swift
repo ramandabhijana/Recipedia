@@ -1,0 +1,31 @@
+// swift-tools-version:5.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+  name: "ImageClassification",
+  platforms: [.iOS(.v14), .macOS(.v11)],
+  products: [
+    .library(
+      name: "ImageClassification",
+      targets: ["ImageClassification"]),
+  ],
+  dependencies: [
+    .package(path: "../Recipe"),
+    .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "10.2.0"),
+    .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
+  ],
+  targets: [
+    .target(
+      name: "ImageClassification",
+      dependencies: [
+        .product(name: "RealmSwift", package: "Realm"),
+        "Recipe",
+        "Alamofire"
+      ]),
+    .testTarget(
+      name: "ImageClassificationTests",
+      dependencies: ["ImageClassification"]),
+  ]
+)
