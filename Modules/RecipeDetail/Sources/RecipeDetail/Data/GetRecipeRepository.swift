@@ -10,7 +10,7 @@ import Combine
 import Foundation
 import Recipe
 
-public protocol RecipeRepository: Repository {
+public protocol EntityRepository: Repository {
   func addEntity(_ entity: Response) -> AnyPublisher<Bool, Error>
   func deleteEntity(byId entityId: Request) -> AnyPublisher<Bool, Error>
   func checkExistence(of entity: Response) -> AnyPublisher<Bool, Error>
@@ -20,7 +20,7 @@ public class GetRecipeRepository<
   Local: LocaleDataSource,
   Remote: RemoteDataSource,
   Transformer: Mapper
->: RecipeRepository
+>: EntityRepository
 where
   Local.Request == Any,
   Remote.Request == Int,

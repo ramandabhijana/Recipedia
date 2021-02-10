@@ -15,7 +15,7 @@ public protocol DetailUseCase: UseCase {
   func checkExistence(of entity: Response) -> AnyPublisher<Bool, Error>
 }
 
-public class DetailInteractor<Request, Response, R: RecipeRepository>: DetailUseCase
+public class DetailInteractor<Request, Response, R: EntityRepository>: DetailUseCase
 where
   R.Request == Request,
   R.Response == Response {

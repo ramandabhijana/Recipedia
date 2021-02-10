@@ -10,13 +10,23 @@ import Recipe
 import RecipeDetail
 import AutocompleteSearch
 import ImageClassification
+import SwinjectAutoregistration
 import struct Core.LazyView
 
 final class Router {
   
+  private var sceneDelegate: SceneDelegate {
+    guard
+      let scene = UIApplication.shared.connectedScenes.first,
+      let delegate = scene.delegate as? SceneDelegate
+    else {
+      fatalError("Cannot retrieve scene delegate instance")
+    }
+    return delegate
+  }
+  
   func makeDetailView(for recipe: RecipeDomainModel) -> LazyView<RecipeDetailView> {
-    guard let useCase: GetDetailUseCase = Injection().provideDetailRecipe(model: recipe)
-    else { fatalError(useCaseErrorMessage) }
+    let useCase = sceneDelegate.container ~> (GetDetailUseCase.self, argument: recipe)
     let presenter = GetDetailPresenter(
       useCase: useCase,
       dataModelId: recipe.id
@@ -43,8 +53,7 @@ final class Router {
   }
   
   func makeClassificationView() -> ClassificationView {
-    guard let useCase: ClassificationUseCase = Injection().provideClassification()
-    else { fatalError(useCaseErrorMessage) }
+    let useCase = sceneDelegate.container ~> (ClassificationUseCase.self)
     let presenter = GetClassificationPresenter(useCase: useCase)
     return ClassificationView(presenter: presenter)
   }

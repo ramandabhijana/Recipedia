@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EB02C0AE25CEFA3400D844CD /* RealmRelationshipTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02C0AD25CEFA3400D844CD /* RealmRelationshipTestCase.swift */; };
+		EB3EE81025D2EC8D0042CE4D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = EB3EE80F25D2EC8D0042CE4D /* Swinject */; };
+		EB3EE81A25D2EF690042CE4D /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = EB3EE81925D2EF690042CE4D /* SwinjectAutoregistration */; };
 		EB4D459225C8570100B82A4A /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = EB4D459125C8570100B82A4A /* Introspect */; };
 		EB4D459825C85A4100B82A4A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB4D459725C85A4100B82A4A /* SDWebImageSwiftUI */; };
 		EB4D45C625C8674D00B82A4A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EB4D45C525C8674D00B82A4A /* .swiftlint.yml */; };
@@ -19,7 +21,6 @@
 		EB83F85C25C81B3D0097B942 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB83F85B25C81B3D0097B942 /* Preview Assets.xcassets */; };
 		EB83F85F25C81B3D0097B942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB83F85D25C81B3D0097B942 /* LaunchScreen.storyboard */; };
 		EB83F87525C81B3D0097B942 /* RecipediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83F87425C81B3D0097B942 /* RecipediaUITests.swift */; };
-		EBB9E50C25C83D9900548C6E /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9E50B25C83D9900548C6E /* Injection.swift */; };
 		EBB9E51525C83DF800548C6E /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9E51425C83DF800548C6E /* AuthorView.swift */; };
 		EBB9E51E25C83EDC00548C6E /* AutocompleteSearch in Frameworks */ = {isa = PBXBuildFile; productRef = EBB9E51D25C83EDC00548C6E /* AutocompleteSearch */; };
 		EBB9E52225C83EDC00548C6E /* ImageClassification in Frameworks */ = {isa = PBXBuildFile; productRef = EBB9E52125C83EDC00548C6E /* ImageClassification */; };
@@ -72,7 +73,6 @@
 		EBB9E4F825C83C7B00548C6E /* RecipeDetail */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RecipeDetail; path = ../Modules/RecipeDetail; sourceTree = "<group>"; };
 		EBB9E4FC25C83C8400548C6E /* AutocompleteSearch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AutocompleteSearch; path = ../Modules/AutocompleteSearch; sourceTree = "<group>"; };
 		EBB9E4FD25C83C8600548C6E /* ImageClassification */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ImageClassification; path = ../Modules/ImageClassification; sourceTree = "<group>"; };
-		EBB9E50B25C83D9900548C6E /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		EBB9E51425C83DF800548C6E /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		EBB9E53525C843B500548C6E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EBCA195025CB0AB100B9B9B8 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -93,7 +93,9 @@
 				EB4D459225C8570100B82A4A /* Introspect in Frameworks */,
 				EBB9E52225C83EDC00548C6E /* ImageClassification in Frameworks */,
 				EBB9E52425C83EDC00548C6E /* Recipe in Frameworks */,
+				EB3EE81025D2EC8D0042CE4D /* Swinject in Frameworks */,
 				EB76498025D2620000DF8218 /* Core in Frameworks */,
+				EB3EE81A25D2EF690042CE4D /* SwinjectAutoregistration in Frameworks */,
 				EBB9E52625C83EDC00548C6E /* RecipeDetail in Frameworks */,
 				EBCA196225CBAB5900B9B9B8 /* Mocker in Frameworks */,
 			);
@@ -193,7 +195,6 @@
 				EB83F85625C81B3A0097B942 /* ContentView.swift */,
 				EBB9E51425C83DF800548C6E /* AuthorView.swift */,
 				EBB9E51325C83DC200548C6E /* Router */,
-				EBB9E50A25C83D8000548C6E /* DI */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -205,14 +206,6 @@
 				EB83F85D25C81B3D0097B942 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EBB9E50A25C83D8000548C6E /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				EBB9E50B25C83D9900548C6E /* Injection.swift */,
-			);
-			path = DI;
 			sourceTree = "<group>";
 		};
 		EBB9E51325C83DC200548C6E /* Router */ = {
@@ -256,6 +249,8 @@
 				EB4D459725C85A4100B82A4A /* SDWebImageSwiftUI */,
 				EBCA196125CBAB5900B9B9B8 /* Mocker */,
 				EB76497F25D2620000DF8218 /* Core */,
+				EB3EE80F25D2EC8D0042CE4D /* Swinject */,
+				EB3EE81925D2EF690042CE4D /* SwinjectAutoregistration */,
 			);
 			productName = Recipedia;
 			productReference = EB83F84F25C81B3A0097B942 /* Recipedia.app */;
@@ -333,6 +328,8 @@
 				EB4D459625C85A4100B82A4A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				EBCA196025CBAB5900B9B9B8 /* XCRemoteSwiftPackageReference "Mocker" */,
 				EB76497E25D2620000DF8218 /* XCRemoteSwiftPackageReference "Recipedia-Core" */,
+				EB3EE80E25D2EC8D0042CE4D /* XCRemoteSwiftPackageReference "Swinject" */,
+				EB3EE81825D2EF690042CE4D /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 			);
 			productRefGroup = EB83F85025C81B3A0097B942 /* Products */;
 			projectDirPath = "";
@@ -403,7 +400,6 @@
 			files = (
 				EBB9E51525C83DF800548C6E /* AuthorView.swift in Sources */,
 				EB83F85325C81B3A0097B942 /* AppDelegate.swift in Sources */,
-				EBB9E50C25C83D9900548C6E /* Injection.swift in Sources */,
 				EB83F85525C81B3A0097B942 /* SceneDelegate.swift in Sources */,
 				EBB9E53625C843B500548C6E /* Router.swift in Sources */,
 				EB83F85725C81B3A0097B942 /* ContentView.swift in Sources */,
@@ -742,6 +738,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB3EE80E25D2EC8D0042CE4D /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+		EB3EE81825D2EF690042CE4D /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
 		EB4D459025C8570100B82A4A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -777,6 +789,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB3EE80F25D2EC8D0042CE4D /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3EE80E25D2EC8D0042CE4D /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		EB3EE81925D2EF690042CE4D /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB3EE81825D2EF690042CE4D /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
 		EB4D459125C8570100B82A4A /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EB4D459025C8570100B82A4A /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;

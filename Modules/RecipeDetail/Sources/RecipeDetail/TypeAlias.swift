@@ -29,3 +29,9 @@ public typealias GetInstructionMiscPresenter = InstructionMiscPresenter<
   InstructionMisc,
   InstructionMiscInteractor
 >
+
+public typealias RecipeRepository = GetRecipeRepository<
+  GetRecipeLocaleDataSource,
+  GetRecipeRemoteDataSource,
+  RecipeMapper
+>
