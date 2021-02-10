@@ -129,7 +129,6 @@ class RecipediaUITests: XCTestCase {
     
     app.navigationBars.buttons["bookmark"].tap()
     let snackBarMessage = app.staticTexts["Added to Favorite"]
-    _ = snackBarMessage.waitForExistence(timeout: 2)
     XCTAssert(snackBarMessage.exists)
     XCTAssert(app.navigationBars.buttons["bookmark.fill"].exists)
   }
@@ -163,7 +162,6 @@ class RecipediaUITests: XCTestCase {
     
     app.navigationBars.buttons["bookmark.fill"].tap()
     let snackBarMessage = app.staticTexts["Removed from Favorite"]
-    _ = snackBarMessage.waitForExistence(timeout: 2)
     
     XCTAssert(snackBarMessage.exists)
     XCTAssert(app.navigationBars.buttons["bookmark"].exists)
